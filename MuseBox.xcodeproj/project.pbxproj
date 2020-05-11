@@ -10,7 +10,6 @@
 		36B12A5E23521A1176630743 /* Pods_MuseBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E7C3A0DA1F69B0B68D644 /* Pods_MuseBox.framework */; };
 		840E530B24687C6E00EA02CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E530A24687C6E00EA02CC /* AppDelegate.swift */; };
 		840E530D24687C6E00EA02CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E530C24687C6E00EA02CC /* SceneDelegate.swift */; };
-		840E530F24687C6E00EA02CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E530E24687C6E00EA02CC /* ViewController.swift */; };
 		840E531224687C6E00EA02CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840E531024687C6E00EA02CC /* Main.storyboard */; };
 		840E531424687C7000EA02CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840E531324687C7000EA02CC /* Assets.xcassets */; };
 		840E531724687C7000EA02CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840E531524687C7000EA02CC /* LaunchScreen.storyboard */; };
@@ -18,6 +17,8 @@
 		840E532724688A4D00EA02CC /* MuseBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E532624688A4D00EA02CC /* MuseBoxUITests.swift */; };
 		840E533524688ABA00EA02CC /* MuseBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E533424688ABA00EA02CC /* MuseBoxTests.swift */; };
 		84B0E933246892A300ACECD5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B0E9322468928C00ACECD5 /* libsqlite3.0.tbd */; };
+		84B0E9392468B06400ACECD5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0E9382468B06400ACECD5 /* SignInViewController.swift */; };
+		84B0E93B2468B73300ACECD5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0E93A2468B73300ACECD5 /* SignUpViewController.swift */; };
 		D0FF6013959E977947A0F59E /* Pods_MuseBox_MuseBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D52FF9FCE43EDAAA60BC59 /* Pods_MuseBox_MuseBoxUITests.framework */; };
 		F8570C65F7499CE3E9B324A8 /* Pods_MuseBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B09077993AE9F2A95B3915B /* Pods_MuseBoxTests.framework */; };
 /* End PBXBuildFile section */
@@ -45,7 +46,6 @@
 		840E530724687C6E00EA02CC /* MuseBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuseBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840E530A24687C6E00EA02CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		840E530C24687C6E00EA02CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		840E530E24687C6E00EA02CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		840E531124687C6E00EA02CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		840E531324687C7000EA02CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		840E531624687C7000EA02CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		840E533624688ABA00EA02CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B0E9322468928C00ACECD5 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		84B0E9342468930500ACECD5 /* MuseBox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MuseBox-Bridging-Header.h"; sourceTree = "<group>"; };
+		84B0E9382468B06400ACECD5 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		84B0E93A2468B73300ACECD5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B40C7A7C79F52600F7F2190D /* Pods-MuseBox-MuseBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseBox-MuseBoxUITests.release.xcconfig"; path = "Target Support Files/Pods-MuseBox-MuseBoxUITests/Pods-MuseBox-MuseBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B84CDBDE293F9E6959019067 /* Pods-MuseBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseBox.release.xcconfig"; path = "Target Support Files/Pods-MuseBox/Pods-MuseBox.release.xcconfig"; sourceTree = "<group>"; };
 		BC2131CA721F073FC19EFB99 /* Pods-MuseBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseBoxTests.release.xcconfig"; path = "Target Support Files/Pods-MuseBoxTests/Pods-MuseBoxTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,12 +139,13 @@
 				840E531E246888AE00EA02CC /* GoogleService-Info.plist */,
 				840E530A24687C6E00EA02CC /* AppDelegate.swift */,
 				840E530C24687C6E00EA02CC /* SceneDelegate.swift */,
-				840E530E24687C6E00EA02CC /* ViewController.swift */,
 				840E531024687C6E00EA02CC /* Main.storyboard */,
 				840E531324687C7000EA02CC /* Assets.xcassets */,
 				840E531524687C7000EA02CC /* LaunchScreen.storyboard */,
 				840E531824687C7000EA02CC /* Info.plist */,
 				84B0E9342468930500ACECD5 /* MuseBox-Bridging-Header.h */,
+				84B0E9382468B06400ACECD5 /* SignInViewController.swift */,
+				84B0E93A2468B73300ACECD5 /* SignUpViewController.swift */,
 			);
 			path = MuseBox;
 			sourceTree = "<group>";
@@ -426,9 +429,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840E530F24687C6E00EA02CC /* ViewController.swift in Sources */,
 				840E530B24687C6E00EA02CC /* AppDelegate.swift in Sources */,
 				840E530D24687C6E00EA02CC /* SceneDelegate.swift in Sources */,
+				84B0E93B2468B73300ACECD5 /* SignUpViewController.swift in Sources */,
+				84B0E9392468B06400ACECD5 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

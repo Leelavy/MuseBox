@@ -14,7 +14,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zZs-KU-14g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Az3-Rv-yDQ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
@@ -32,11 +33,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Feed" id="HZj-2h-tJE">
                         <barButtonItem key="leftBarButtonItem" title="Login" image="person.crop.circle.fill" catalog="system" id="rbh-Az-7f1">
-                            <connections>
-                                <segue destination="Qxd-IZ-uT2" kind="show" id="pD1-aR-4lU"/>
-                            </connections>
+                            <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="AddPost" image="plus" catalog="system" id="MZ8-sp-yrd">
+                            <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="oDy-rX-59G" kind="show" id="Xke-qs-xwh"/>
                             </connections>
@@ -54,7 +54,7 @@
                     <view key="view" contentMode="scaleToFill" id="j2o-fx-uRH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Lnt-Hd-ZxO"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Post" id="fJL-oJ-ZZH"/>
@@ -70,7 +70,7 @@
                     <view key="view" contentMode="scaleToFill" id="ztK-i2-m4T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ZX6-jT-w1c"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Event" id="xdx-dI-Itg"/>
@@ -86,7 +86,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="81Y-SX-h7d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zKc-fA-hst">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
@@ -104,6 +104,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Events" id="BEw-MF-Ghn">
                         <barButtonItem key="rightBarButtonItem" title="AddEvent" image="plus" catalog="system" id="5W3-DZ-QNJ">
+                            <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="WH8-he-Nh1" kind="show" id="Gls-qk-lFf"/>
                             </connections>
@@ -118,10 +119,14 @@
         <scene sceneID="Iri-2d-dDi">
             <objects>
                 <navigationController id="0BD-7L-ZWA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="FmV-jN-sgz"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="FmV-jN-sgz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aI7-o2-R4i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="eXj-FI-ay4" kind="relationship" relationship="rootViewController" id="HBM-SQ-D8O"/>
@@ -134,47 +139,52 @@
         <!--Login-->
         <scene sceneID="an8-OK-caX">
             <objects>
-                <viewController title="Login" id="Qxd-IZ-uT2" sceneMemberID="viewController">
+                <viewController title="Login" id="Qxd-IZ-uT2" customClass="SignInViewController" customModule="MuseBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1UO-JZ-uU4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2GZ-ZV-77c">
-                                <rect key="frame" x="78" y="60" width="218" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="amK-K5-CKA">
-                                <rect key="frame" x="78" y="112" width="218" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohc-TM-xwN">
-                                <rect key="frame" x="161" y="172" width="53" height="39"/>
+                                <rect key="frame" x="55" y="314" width="267" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Login"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.15975492294520549" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" red="0.70562037249048615" green="1" blue="0.96262461274783195" alpha="0.75197988013698636" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnE-kb-NJW">
-                                <rect key="frame" x="148" y="212" width="79" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMd-3D-Ntq">
+                                <rect key="frame" x="55" y="370" width="267" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Register"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.15975492290000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" red="0.70562037249999998" green="1" blue="0.96262461269999999" alpha="0.75197988010000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="O4T-cX-Sme" kind="show" id="n1Q-ls-Hz2"/>
+                                    <segue destination="J17-gL-LKd" kind="presentation" id="6HG-bD-HOA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKu-La-6fE">
-                                <rect key="frame" x="154" y="249" width="67" height="39"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1cv-vU-tmI">
+                                <rect key="frame" x="16" y="204" width="343" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Cancel"/>
-                            </button>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.8845515839041096" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyQ-dX-jhd">
+                                <rect key="frame" x="16" y="255" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.88455158389999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MuseboxLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lO5-Sf-dlO">
+                                <rect key="frame" x="67" y="94" width="240" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.088830312959976745" green="0.14872939296284146" blue="0.22937817258883253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="0LP-Io-BnL"/>
                     </view>
                     <navigationItem key="navigationItem" id="os5-J8-XLq"/>
@@ -183,48 +193,6 @@
             </objects>
             <point key="canvasLocation" x="1200.8" y="279.31034482758622"/>
         </scene>
-        <!--Register-->
-        <scene sceneID="dbH-Lu-ney">
-            <objects>
-                <viewController title="Register" id="O4T-cX-Sme" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vB5-3w-Mey">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4GH-Xc-ZnG">
-                                <rect key="frame" x="78" y="62" width="218" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ody-FG-4Pf">
-                                <rect key="frame" x="78" y="111" width="218" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSO-7d-cTi">
-                                <rect key="frame" x="78" y="159" width="218" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKL-pB-mAU">
-                                <rect key="frame" x="148" y="219" width="79" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Register"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6zM-wg-KcM"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="4Nd-D3-KPc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fIz-mj-s00" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2156" y="279"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="USv-Ab-Vl5">
             <objects>
@@ -232,11 +200,12 @@
                     <view key="view" contentMode="scaleToFill" id="3kG-hQ-oqa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="tcM-OV-PBn"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="l3z-dO-phg">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="bK1-CR-zKz">
+                            <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="Q8u-UX-PNe" kind="show" id="PiO-QW-Pre"/>
                             </connections>
@@ -254,7 +223,7 @@
                     <view key="view" contentMode="scaleToFill" id="A9Q-hx-jAU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="bUx-2Y-Iza"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="L3I-9x-FaH"/>
@@ -267,10 +236,14 @@
         <scene sceneID="iFX-Wa-kuZ">
             <objects>
                 <navigationController id="Znt-Xb-dgD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" image="music.house" catalog="system" id="sde-lk-9X0"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="music.house" catalog="system" selectedImage="music.house.fill" id="sde-lk-9X0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c5V-Kq-bRw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Lm5-0L-6Ry" kind="relationship" relationship="rootViewController" id="jZb-J7-uKZ"/>
@@ -284,10 +257,14 @@
         <scene sceneID="uEO-pz-NgM">
             <objects>
                 <navigationController id="xRG-Jn-Yvd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="rectangle.dock" catalog="system" id="Jhx-NC-ecO"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="rectangle.grid.3x2" catalog="system" selectedImage="rectangle.grid.3x2.fill" id="Jhx-NC-ecO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kcW-ss-owe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="aul-Jw-Q38" kind="relationship" relationship="rootViewController" id="gIQ-6k-V8Q"/>
@@ -305,6 +282,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="xRG-Jn-Yvd" kind="relationship" relationship="viewControllers" id="yLb-Qa-LZ0"/>
@@ -316,12 +295,85 @@
             </objects>
             <point key="canvasLocation" x="118" y="-720"/>
         </scene>
+        <!--Login-->
+        <scene sceneID="nbz-un-qAc">
+            <objects>
+                <viewController title="Login" id="J17-gL-LKd" customClass="SignUpViewController" customModule="MuseBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qlO-0o-aBW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUC-w2-ouf">
+                                <rect key="frame" x="55" y="366" width="267" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.15975492290000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.70562037249999998" green="1" blue="0.96262461269999999" alpha="0.75197988010000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fYw-RI-Yec">
+                                <rect key="frame" x="16" y="256" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.88455158389999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xlu-rK-SWs">
+                                <rect key="frame" x="16" y="205" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.88455158389999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cQt-He-heZ">
+                                <rect key="frame" x="16" y="307" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.88455158389999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProfilePicPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="eHy-QL-Cf8">
+                                <rect key="frame" x="137" y="64" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MuseboxLogo" translatesAutoresizingMaskIntoConstraints="NO" id="PZo-ed-hCK">
+                                <rect key="frame" x="123" y="554" width="129" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeG-yZ-zXR">
+                                <rect key="frame" x="137" y="418" width="102" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back to Sign In">
+                                    <color key="titleColor" red="0.70562037249999998" green="1" blue="0.96262461269999999" alpha="0.75197988010000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToSignIn:" destination="J17-gL-LKd" eventType="touchUpInside" id="6Kr-BX-ljp"/>
+                                    <action selector="onClickDismiss:" destination="7dH-oV-5Ye" eventType="touchUpInside" id="nS5-Zm-lYP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.088830312960000005" green="0.14872939299999999" blue="0.22937817260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6w9-Ph-9AY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PQO-Vm-fa0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iUe-Le-SpU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="7dH-oV-5Ye" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2156" y="278.41079460269867"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="MuseboxLogo" width="960" height="181.5"/>
+        <image name="ProfilePicPlaceholder" width="341.5" height="341.5"/>
         <image name="music.house" catalog="system" width="64" height="52"/>
+        <image name="music.house.fill" catalog="system" width="64" height="52"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.crop.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="plus" catalog="system" width="64" height="56"/>
-        <image name="rectangle.dock" catalog="system" width="64" height="46"/>
+        <image name="rectangle.grid.3x2" catalog="system" width="64" height="50"/>
+        <image name="rectangle.grid.3x2.fill" catalog="system" width="64" height="50"/>
     </resources>
 </document>
