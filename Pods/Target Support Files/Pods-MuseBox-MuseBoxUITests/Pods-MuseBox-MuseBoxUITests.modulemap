@@ -1,0 +1,6 @@
+framework module Pods_MuseBox_MuseBoxUITests {
+  umbrella header "Pods-MuseBox-MuseBoxUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

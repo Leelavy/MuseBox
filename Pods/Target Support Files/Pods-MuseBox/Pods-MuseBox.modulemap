@@ -1,0 +1,6 @@
+framework module Pods_MuseBox {
+  umbrella header "Pods-MuseBox-umbrella.h"
+
+  export *
+  module * { export * }
+}

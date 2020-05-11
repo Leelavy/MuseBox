@@ -34,6 +34,9 @@
                     <navigationItem key="navigationItem" title="Feed" id="HZj-2h-tJE">
                         <barButtonItem key="leftBarButtonItem" title="Login" image="person.crop.circle.fill" catalog="system" id="rbh-Az-7f1">
                             <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Qxd-IZ-uT2" kind="show" id="U5q-gq-DcC"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="AddPost" image="plus" catalog="system" id="MZ8-sp-yrd">
                             <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
