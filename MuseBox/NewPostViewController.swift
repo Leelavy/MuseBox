@@ -11,10 +11,10 @@ import UIKit
 class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SignInViewControllerDelegate {
     
     func onSignInSuccess() {
-
     }
     
     func onSignInCancel() {
+        self.navigationController?.popViewController(animated: true)
     }
     
 
@@ -87,7 +87,7 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         showIndicator(title: "Posting...", description: "")
         let newPostId = UUID().uuidString
-        let newPost = Post(topic: topicTextField.text!, interest: interestTextField.text!, contact: contactTextField.text!, content: contentTextView.text!, postId: newPostId)
+        let newPost = Post(userId: Model.instance.theUser.userId!,username: Model.instance.theUser.username!,userImgUrl: Model.instance.theUser.profileImg!,topic: topicTextField.text!, interest: interestTextField.text!, contact: contactTextField.text!, content: contentTextView.text!, postId: newPostId)
         Model.instance.savePost(newPost: newPost, postImage: self.photo.image) { (success) in
             
             if success {

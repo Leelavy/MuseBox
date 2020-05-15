@@ -15,13 +15,15 @@ class User {
     var email: String?
     var profileImg: String?
     var userId: String?
+    var info: String?
     
-    init(userId: String = "", username: String = "", email: String = "", profileImg: String = ""){
+    init(userId: String = "", username: String = "", email: String = "", profileImg: String = "", info: String = ""){
         
         self.userId = userId
         self.username = username
         self.email = email
         self.profileImg = profileImg
+        self.info = info
     }
     
     func toJson() -> [String:Any] {
@@ -31,6 +33,7 @@ class User {
         json["username"] = self.username
         json["email"] = self.email
         json["profileImg"] = self.profileImg
+        json["info"] = self.info
         return json;
     }
     

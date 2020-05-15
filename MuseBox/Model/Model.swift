@@ -14,6 +14,7 @@ class Model {
     
     static let instance = Model()
     var modelFirebase: ModelFirebase = ModelFirebase()
+    var theUser: User = User()
     
     var signedIn: Bool = false
     
@@ -29,7 +30,7 @@ class Model {
             else {
                 let userId: String? = authData!.user.uid
                 if userId != nil {
-                    let newUser = User(userId: userId!, username: username, email: email, profileImg: "")
+                    let newUser = User(userId: userId!, username: username, email: email, profileImg: "", info: "No info")
                     self.modelFirebase.addUserToDB(user: newUser)
                     callback(userId)
                 }
@@ -49,12 +50,97 @@ class Model {
                 callback(false)
             }
             else {
+                self.theUser.email = Auth.auth().currentUser?.email
+                self.theUser.userId = Auth.auth().currentUser?.uid
+                self.getUserProfileImg(userId: self.theUser.userId!, callback: { (profileImgUrl) in
+                    self.theUser.profileImg = profileImgUrl
+                })
+                self.getUserUsername(userId: self.theUser.userId!) { (username) in
+                    self.theUser.username = username
+                }
+                self.getUserInfo(userId: self.theUser.userId!) { (info) in
+                    self.theUser.info = info
+                }
                 self.signedIn = true
+                print(self.theUser.profileImg!)
+                print(self.theUser.username!)
+
                 callback(true)
             }
         }
     }
     
+    func getUserProfileImg(userId: String, callback:@escaping (String)->Void) {
+        let dataBase = Firestore.firestore()
+        dataBase.collection("users").getDocuments { (querySnapshot, error) in
+            if let err = error {
+                print("Error getting documents: \(err)")
+                callback("")
+            } else {
+                for user in querySnapshot!.documents {
+                    if userId == user.data()["userId"] as? String {
+                        if let imgUrl = user.data()["profileImg"] as? String {
+                            print(imgUrl)
+                            callback(imgUrl)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getUserUsername(userId: String, callback:@escaping (String)-> Void){
+        let dataBase = Firestore.firestore()
+        dataBase.collection("users").getDocuments { (querySnapshot, error) in
+            if let err = error {
+                print("Error getting documents: \(err)")
+                callback("")
+            } else {
+                for user in querySnapshot!.documents {
+                    if userId == user.data()["userId"] as? String {
+                        if let username = user.data()["username"] as? String {
+                            print(username)
+                            callback(username)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getUserInfo(userId: String, callback:@escaping (String)-> Void){
+        let dataBase = Firestore.firestore()
+        dataBase.collection("users").getDocuments { (querySnapshot, error) in
+            if let err = error {
+                print("Error getting documents: \(err)")
+                callback("")
+            } else {
+                for user in querySnapshot!.documents {
+                    if userId == user.data()["userId"] as? String {
+                        if let info = user.data()["info"] as? String {
+                            print(info)
+                            callback(info)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getUpdatedUserDetails(userId: String){
+        theUser.email = Auth.auth().currentUser?.email
+        theUser.userId = Auth.auth().currentUser?.uid
+        getUserProfileImg(userId: self.theUser.userId!, callback: { (profileImgUrl) in
+            self.theUser.profileImg = profileImgUrl
+        })
+        getUserUsername(userId: self.theUser.userId!) { (username) in
+            self.theUser.username = username
+        }
+        getUserInfo(userId: self.theUser.userId!) { (info) in
+            self.theUser.info = info
+        }
+        signedIn = true
+    }
     
     func signOut(callback: @escaping (Bool)->Void){
         
@@ -89,7 +175,7 @@ class Model {
                 else {
                     imgPostUrl = imgUrl
                 }
-                let postToAdd = Post(topic: newPost.topic!, interest: newPost.interest!, contact: newPost.contact!, content: newPost.content!, postId: newPost.postId!, photoUrl: imgPostUrl!)
+                let postToAdd = Post(userId: newPost.userId!,username: newPost.username!,userImgUrl: newPost.userImgUrl!, topic: newPost.topic!, interest: newPost.interest!, contact: newPost.contact!, content: newPost.content!, postId: newPost.postId!, photoUrl: imgPostUrl!)
                 self.modelFirebase.addPostToDB(post: postToAdd) { (success) in
                     if success {
                         callback(true)
@@ -123,7 +209,18 @@ class Model {
         }
     }
     
+    func updateUserDetails(userId: String, newUsername: String, newEmail: String, newProfileImg: String, newInfo: String, callback:@escaping (Bool)-> Void){
+        modelFirebase.updateUserDetails(userId: userId, newUsername: newUsername, newEmail: newEmail, newProfileImg: newProfileImg, newInfo: newInfo) { (success) in
+            if success {
+                callback(true)
+            }
+            else {
+                callback(false)
+            }
+        }
+    }
     
     
     
+
 }

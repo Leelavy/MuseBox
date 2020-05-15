@@ -70,9 +70,23 @@ class ModelFirebase {
                 }
                 callback(allPosts);
             }
-        };
+        }
     }
     
+    func updateUserDetails(userId: String, newUsername: String, newEmail: String, newProfileImg: String, newInfo: String, callback:@escaping (Bool)-> Void){
+        let dataBase = Firestore.firestore()
+        dataBase.collection("users").document(userId).updateData(["username" : newUsername])
+        dataBase.collection("users").document(userId).updateData(["email" : newEmail])
+        dataBase.collection("users").document(userId).updateData(["profileImg" : newProfileImg])
+        dataBase.collection("users").document(userId).updateData(["info" : newInfo])
+        Auth.auth().currentUser?.updateEmail(to: newEmail, completion: { (error) in
+            if let err = error {
+                print("Error with changing email: \(err)")
+                callback(false)
+            }
+        })
+        callback(true)
+    }
     
     
 }

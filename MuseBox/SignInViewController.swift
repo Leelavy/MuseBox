@@ -56,7 +56,6 @@ class SignInViewController: UIViewController {
         Model.instance.signIn(email: emailTextField.text!, password: passwordTextField.text!) { (success) in
             if (success){
                 self.navigationController?.popViewController(animated: true)
-                //self.navigationController?.popViewController(animated: true);
                 if let delegate = self.delegate{
                     delegate.onSignInSuccess()
                 }

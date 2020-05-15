@@ -8,9 +8,31 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, SignInViewControllerDelegate {
+class ProfileViewController: UIViewController, SignInViewControllerDelegate,EditProfileViewControllerDelegate {
+   
     
+    var user: User = Model.instance.theUser
+    
+    @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var infoTextView: UITextView!
+    
+    func onEditSuccess() {
+        updateProfilePage()
+    }
+       
     func onSignInSuccess() {
+        usernameLabel.text = Model.instance.theUser.username
+        emailLabel.text = Model.instance.theUser.email
+        infoTextView.text = Model.instance.theUser.info
+        if Model.instance.theUser.profileImg != "" {
+            profileImg.kf.setImage(with: URL(string: Model.instance.theUser.profileImg!))
+        }
+        else {
+            profileImg.image = UIImage(named: "imgPlaceholder")
+        }
+        profileImg.setRounded()
     }
     
     func onSignInCancel() {
@@ -27,26 +49,55 @@ class ProfileViewController: UIViewController, SignInViewControllerDelegate {
             signInScreen.delegate = self
             show(signInScreen, sender: self)
         }
+        else{
+            updateProfilePage()
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    
+    func updateProfilePage(){
+        usernameLabel.text = Model.instance.theUser.username
+        emailLabel.text = Model.instance.theUser.email
+        infoTextView.text = Model.instance.theUser.info
+        if Model.instance.theUser.profileImg != "" {
+            profileImg.kf.setImage(with: URL(string: Model.instance.theUser.profileImg!))
+        }
+        else {
+            profileImg.image = UIImage(named: "imgPlaceholder")
+        }
+        profileImg.setRounded()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         if(!Model.instance.isSignedIn()){
             let signInScreen = SignInViewController.factory()
             signInScreen.delegate = self
             show(signInScreen, sender: self)
         }
+        else {
+            Model.instance.getUpdatedUserDetails(userId: user.userId!)
+            self.user = Model.instance.theUser
+            usernameLabel.text = Model.instance.theUser.username
+            emailLabel.text = Model.instance.theUser.email
+            infoTextView.text = Model.instance.theUser.info
+            if Model.instance.theUser.profileImg != "" {
+                profileImg.kf.setImage(with: URL(string: Model.instance.theUser.profileImg!))
+            }
+            else {
+                profileImg.image = UIImage(named: "imgPlaceholder")
+            }
+            profileImg.setRounded()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "ToEditProfileSegue"){
+            let editProfile:EditProfileViewController = segue.destination as! EditProfileViewController
+            editProfile.user = user
+            editProfile.delegate = self
+        }
     }
-    */
+    
 
 }

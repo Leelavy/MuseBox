@@ -17,17 +17,11 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
     
     
     func onSignInSuccess() {
-        let newSignOutButton = UIBarButtonItem(title: "Sign Out", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.signOut(sender:)))
-        newSignOutButton.tintColor = UIColor(red: 0, green: 214, blue: 214, alpha: 1)
-        self.navigationItem.leftBarButtonItem = newSignOutButton
+        signButtonAppear()
     }
     
     func onSignInCancel() {
-        if Model.instance.signedIn == false {
-            let newSignInButton = UIBarButtonItem(title: "Sign In", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.signIn_TouchUpInside(_:)))
-            newSignInButton.tintColor = UIColor(red: 0, green: 214, blue: 214, alpha: 1)
-            self.navigationItem.leftBarButtonItem = newSignInButton
-        }
+        signButtonAppear()
     }
     
     @IBAction func signIn_TouchUpInside(_ sender: Any) {
@@ -69,7 +63,7 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
     @objc func reloadData(){
         Model.instance.getAllPosts { (recievedData:[Post]?) in
             if recievedData != nil {
-                self.allPosts = recievedData!
+                self.allPosts = recievedData!.reversed()
                 self.tableView.reloadData()
             }
             self.refreshControl?.endRefreshing()
@@ -77,9 +71,21 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        signButtonAppear()
     }
     
+    func signButtonAppear(){
+        if Model.instance.signedIn == false {
+            let newSignInButton = UIBarButtonItem(title: "Sign In", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.signIn_TouchUpInside(_:)))
+            newSignInButton.tintColor = UIColor(red: 0, green: 214, blue: 214, alpha: 1)
+            self.navigationItem.leftBarButtonItem = newSignInButton
+        }
+        else {
+            let newSignOutButton = UIBarButtonItem(title: "Sign Out", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.signOut(sender:)))
+            newSignOutButton.tintColor = UIColor(red: 0, green: 214, blue: 214, alpha: 1)
+            self.navigationItem.leftBarButtonItem = newSignOutButton
+        }
+    }
     
     // MARK: - Table view data source
     
@@ -97,12 +103,19 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
         let cell:FeedTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! FeedTableViewCell
         
         let post = allPosts[indexPath.row]
-        cell.profileImg.image = UIImage(named:"imgPlaceholder")
-        cell.profileImg.setRounded()
+        
         cell.topicLabel.text = "Topic: " + post.topic!
         cell.interestLabel.text = "Interests: " + post.interest!
         cell.contentTextView.text = post.content
         cell.contactLabel.text = "Contact: " + post.contact!
+        cell.usernameLabel.text = post.username
+        
+        cell.profileImg.image = UIImage(named:"imgPlaceholder")
+        if post.userImgUrl != ""{
+            cell.profileImg.kf.setImage(with: URL(string: post.userImgUrl!))
+        }
+        cell.profileImg.setRounded()
+        
         cell.postImg.image = UIImage(named: "imgPlaceholder")
         if post.photoUrl != ""{
             cell.postImg.kf.setImage(with: URL(string: post.photoUrl!))
