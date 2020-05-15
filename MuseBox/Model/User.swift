@@ -16,7 +16,7 @@ class User {
     var profileImg: String?
     var userId: String?
     
-    init(userId: String, username: String, email: String, profileImg: String = ""){
+    init(userId: String = "", username: String = "", email: String = "", profileImg: String = ""){
         
         self.userId = userId
         self.username = username

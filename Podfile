@@ -11,6 +11,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
+pod 'MBProgressHUD', '~> 1.1.0'
+pod 'Kingfisher', '~> 5.0'
 
   target 'MuseBoxTests' do
     inherit! :search_paths

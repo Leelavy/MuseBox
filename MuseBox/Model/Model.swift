@@ -55,6 +55,7 @@ class Model {
         }
     }
     
+    
     func signOut(callback: @escaping (Bool)->Void){
         
         do {
@@ -67,14 +68,62 @@ class Model {
         }
     }
     
-    func saveImageGeneral(image:UIImage, category:String?, userId: String?, callback:@escaping (String)->Void) {
-        FirbaseStorage.saveImageGeneral(image: image, category: category, userId: userId, callback: callback)
+    func saveImageGeneral(image:UIImage, category:String?, id: String?, callback:@escaping (String?)->Void) {
+        FirbaseStorage.saveImageGeneral(image: image, category: category, id: id, callback: callback)
     }
     
     func updateUserProfilePicture(userId: String, url: String, callback:@escaping (Bool)->Void){
         modelFirebase.updateUserProfilePicture(userId: userId, url: url, callback: callback)
         
     }
+    
+    func savePost(newPost: Post, postImage: UIImage?, callback: @escaping (Bool)->Void){
+        
+        var imgPostUrl:String?
+        
+        if postImage != nil {
+            saveImageGeneral(image: postImage!, category: "posts", id: newPost.postId) { (imgUrl) in
+                if imgUrl == nil {
+                    imgPostUrl = ""
+                }
+                else {
+                    imgPostUrl = imgUrl
+                }
+                let postToAdd = Post(topic: newPost.topic!, interest: newPost.interest!, contact: newPost.contact!, content: newPost.content!, postId: newPost.postId!, photoUrl: imgPostUrl!)
+                self.modelFirebase.addPostToDB(post: postToAdd) { (success) in
+                    if success {
+                        callback(true)
+                    }
+                    else {
+                        callback(false)
+                    }
+                }
+            }
+        }
+    }
+    
+    func getAllPosts(callback:@escaping ([Post]?)->Void){
+                
+        //get the local last update date
+        let lud = Post.getLastUpdateDate()
+        
+        //get the cloud updates
+        modelFirebase.getAllPosts(since: lud) { (data) in
+            //insert update to the local db
+            var lud:Int64 = 0
+            for post in data!{
+                post.addToLocalDB()
+                if post.lastUpdate! > lud {lud = post.lastUpdate!}
+            }
+            //updates the post's local last update date
+            Post.setLastUpdate(lastUpdated: lud)
+            // get the complete student list
+            let finalPostData = Post.getAllPostsFromLocalDB()
+            callback(finalPostData);
+        }
+    }
+    
+    
     
     
 }

@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController, SignInViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         if(!Model.instance.isSignedIn()){
+        if(!Model.instance.isSignedIn()){
             let signInScreen = SignInViewController.factory()
             signInScreen.delegate = self
             show(signInScreen, sender: self)

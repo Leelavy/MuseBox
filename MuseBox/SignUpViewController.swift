@@ -82,8 +82,8 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate, UI
         Model.instance.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!) { (userId) in
             if userId != nil {
                 if let selectedImg = self.selectedImg {
-                    Model.instance.saveImageGeneral(image: selectedImg, category: "profile_image", userId: userId) { (imgUrl) in
-                        Model.instance.updateUserProfilePicture(userId: userId!, url: imgUrl) { (success) in
+                    Model.instance.saveImageGeneral(image: selectedImg, category: "profile_image", id: userId) { (imgUrl) in
+                        Model.instance.updateUserProfilePicture(userId: userId!, url: imgUrl!) { (success) in
                             if success {
                                 print("profile picture updated")
                             }
