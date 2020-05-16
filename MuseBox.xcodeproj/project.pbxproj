@@ -36,6 +36,8 @@
 		84B0E933246892A300ACECD5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B0E9322468928C00ACECD5 /* libsqlite3.0.tbd */; };
 		84B0E9392468B06400ACECD5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0E9382468B06400ACECD5 /* SignInViewController.swift */; };
 		84B0E93B2468B73300ACECD5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0E93A2468B73300ACECD5 /* SignUpViewController.swift */; };
+		84C9BEB2246F477E00BB20A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9BEB1246F477E00BB20A1 /* Event.swift */; };
+		84C9BEB4246F49B400BB20A1 /* EventLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9BEB3246F49B400BB20A1 /* EventLocalDB.swift */; };
 		84F768F6246EB21E00356725 /* ProgressExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F768F5246EB21E00356725 /* ProgressExtension.swift */; };
 		D0FF6013959E977947A0F59E /* Pods_MuseBox_MuseBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D52FF9FCE43EDAAA60BC59 /* Pods_MuseBox_MuseBoxUITests.framework */; };
 		F8570C65F7499CE3E9B324A8 /* Pods_MuseBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B09077993AE9F2A95B3915B /* Pods_MuseBoxTests.framework */; };
@@ -96,6 +98,8 @@
 		84B0E9342468930500ACECD5 /* MuseBox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MuseBox-Bridging-Header.h"; sourceTree = "<group>"; };
 		84B0E9382468B06400ACECD5 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		84B0E93A2468B73300ACECD5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		84C9BEB1246F477E00BB20A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		84C9BEB3246F49B400BB20A1 /* EventLocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocalDB.swift; sourceTree = "<group>"; };
 		84F768F5246EB21E00356725 /* ProgressExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressExtension.swift; sourceTree = "<group>"; };
 		B40C7A7C79F52600F7F2190D /* Pods-MuseBox-MuseBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseBox-MuseBoxUITests.release.xcconfig"; path = "Target Support Files/Pods-MuseBox-MuseBoxUITests/Pods-MuseBox-MuseBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B84CDBDE293F9E6959019067 /* Pods-MuseBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseBox.release.xcconfig"; path = "Target Support Files/Pods-MuseBox/Pods-MuseBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				842324D7246D6EE500353D55 /* Post.swift */,
 				842324DB246DD8CD00353D55 /* PostLocalDB.swift */,
 				842324DD246DDA7600353D55 /* ModelSql.swift */,
+				84C9BEB1246F477E00BB20A1 /* Event.swift */,
+				84C9BEB3246F49B400BB20A1 /* EventLocalDB.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -499,6 +505,8 @@
 				84564BBA2469881B00EF6B63 /* User.swift in Sources */,
 				84564BA32469535A00EF6B63 /* FeedTableViewCell.swift in Sources */,
 				840E530D24687C6E00EA02CC /* SceneDelegate.swift in Sources */,
+				84C9BEB4246F49B400BB20A1 /* EventLocalDB.swift in Sources */,
+				84C9BEB2246F477E00BB20A1 /* Event.swift in Sources */,
 				84F768F6246EB21E00356725 /* ProgressExtension.swift in Sources */,
 				842324DE246DDA7600353D55 /* ModelSql.swift in Sources */,
 				84564BBF2469ACAD00EF6B63 /* imageExtension.swift in Sources */,

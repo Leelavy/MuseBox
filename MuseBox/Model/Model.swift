@@ -220,6 +220,52 @@ class Model {
         }
     }
     
+    func saveEvent(newEvent: Event, eventImage: UIImage?, callback: @escaping (Bool)->Void){
+        
+        var imgEventUrl:String?
+        
+        if eventImage != nil {
+            saveImageGeneral(image: eventImage!, category: "events", id: newEvent.eventId!) { (imgUrl) in
+                if imgUrl == nil {
+                    imgEventUrl = ""
+                }
+                else {
+                    imgEventUrl = imgUrl
+                }
+                let eventToAdd = Event(eventId: newEvent.eventId!, userId: newEvent.userId!, eventName: newEvent.eventName!, date: newEvent.date!, time: newEvent.time!, location: newEvent.location!, description: newEvent.description!, eventImgUrl: imgEventUrl!)
+                self.modelFirebase.addEventToDB(event: eventToAdd) { (success) in
+                    if success {
+                        callback(true)
+                    }
+                    else {
+                        callback(false)
+                    }
+                }
+            }
+        }
+    }
+    
+    func getAllEvents(callback:@escaping ([Event]?)->Void){
+                
+        //get the local last update date
+        let lud = Event.getLastUpdateDate()
+        
+        //get the cloud updates
+        modelFirebase.getAllEvents(since: lud) { (data) in
+            //insert update to the local db
+            var lud:Int64 = 0
+            for event in data!{
+                event.addToLocalDB()
+                if event.lastUpdate! > lud {lud = event.lastUpdate!}
+            }
+            //updates the post's local last update date
+            Event.setLastUpdate(lastUpdated: lud)
+            // get the complete student list
+            let finalEventData = Event.getAllEventsFromLocalDB()
+            callback(finalEventData);
+        }
+    }
+    
     
     
 

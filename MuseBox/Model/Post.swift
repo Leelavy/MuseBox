@@ -12,7 +12,6 @@ import Firebase
 
 class Post {
     
-    // var user: User? - maybe i should use it?
     var userId: String?
     var username: String?
     var userImgUrl: String?

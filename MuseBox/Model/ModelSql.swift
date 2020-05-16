@@ -25,6 +25,7 @@ class ModelSql{
         }
         createLastUpdateTable();
         Post.createLocalDBTable(database: localDatabase)
+        Event.createLocalDBTable(database: localDatabase)
     }
     
     deinit {

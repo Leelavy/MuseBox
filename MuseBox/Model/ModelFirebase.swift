@@ -88,5 +88,43 @@ class ModelFirebase {
         callback(true)
     }
     
+    func addEventToDB(event: Event, callback:@escaping (Bool)->Void){
+           
+           let dataBase = Firestore.firestore()
+        dataBase.collection("events").document(event.eventId!).setData(event.toJson()){ error in
+               if error != nil {
+                   print("Error writing post to DB: \(error!.localizedDescription)")
+                   callback(false)
+               }
+               else {
+                   print("post was added to the DB.")
+                   callback(true)
+               }
+           }
+       }
+       
+       func getAllEvents(since: Int64, callback: @escaping ([Event]?)->Void){
+           let dataBase = Firestore.firestore()
+           dataBase.collection("events").order(by: "lastUpdate", descending: false).start(at: [Timestamp(seconds: since, nanoseconds: 0)]).getDocuments { (querySnapshot, err) in
+               if let err = err {
+                   print("Error getting documents: \(err)")
+                   callback(nil)
+               } else {
+                   var allEvents = [Event]()
+                   for document in querySnapshot!.documents {
+                       if let timeStamp = document.data()["lastUpdate"] as? Timestamp {
+                           let timeStampDate = timeStamp.dateValue()
+                           print("\(timeStampDate)")
+                           let timeStampDouble = timeStampDate.timeIntervalSince1970
+                           print("\(timeStampDouble)")
+                       }
+                       print(document.data())
+                       allEvents.append(Event(json: document.data()))
+                   }
+                   callback(allEvents)
+               }
+           }
+       }
+    
     
 }
