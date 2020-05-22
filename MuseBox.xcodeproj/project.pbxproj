@@ -38,7 +38,12 @@
 		84B0E93B2468B73300ACECD5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0E93A2468B73300ACECD5 /* SignUpViewController.swift */; };
 		84C9BEB2246F477E00BB20A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9BEB1246F477E00BB20A1 /* Event.swift */; };
 		84C9BEB4246F49B400BB20A1 /* EventLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9BEB3246F49B400BB20A1 /* EventLocalDB.swift */; };
+		84DCC312247168F800C2D301 /* Appicon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DCC311247168F700C2D301 /* Appicon120.png */; };
+		84DCC3162471A8C300C2D301 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DCC3152471A8C200C2D301 /* CommentTableViewCell.swift */; };
+		84DCC31C2471BB6000C2D301 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DCC31B2471BB6000C2D301 /* Comment.swift */; };
+		84DCC31E2471BDF500C2D301 /* CommentLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DCC31D2471BDF500C2D301 /* CommentLocalDB.swift */; };
 		84F768F6246EB21E00356725 /* ProgressExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F768F5246EB21E00356725 /* ProgressExtension.swift */; };
+		84FFC6592476A84B0002D7B1 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFC6582476A84B0002D7B1 /* CommentsTableViewController.swift */; };
 		D0FF6013959E977947A0F59E /* Pods_MuseBox_MuseBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D52FF9FCE43EDAAA60BC59 /* Pods_MuseBox_MuseBoxUITests.framework */; };
 		F8570C65F7499CE3E9B324A8 /* Pods_MuseBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B09077993AE9F2A95B3915B /* Pods_MuseBoxTests.framework */; };
 /* End PBXBuildFile section */
@@ -100,7 +105,12 @@
 		84B0E93A2468B73300ACECD5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		84C9BEB1246F477E00BB20A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		84C9BEB3246F49B400BB20A1 /* EventLocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocalDB.swift; sourceTree = "<group>"; };
+		84DCC311247168F700C2D301 /* Appicon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Appicon120.png; path = ../../../Downloads/Appicon120.png; sourceTree = "<group>"; };
+		84DCC3152471A8C200C2D301 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		84DCC31B2471BB6000C2D301 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		84DCC31D2471BDF500C2D301 /* CommentLocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentLocalDB.swift; sourceTree = "<group>"; };
 		84F768F5246EB21E00356725 /* ProgressExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressExtension.swift; sourceTree = "<group>"; };
+		84FFC6582476A84B0002D7B1 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		B40C7A7C79F52600F7F2190D /* Pods-MuseBox-MuseBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseBox-MuseBoxUITests.release.xcconfig"; path = "Target Support Files/Pods-MuseBox-MuseBoxUITests/Pods-MuseBox-MuseBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B84CDBDE293F9E6959019067 /* Pods-MuseBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseBox.release.xcconfig"; path = "Target Support Files/Pods-MuseBox/Pods-MuseBox.release.xcconfig"; sourceTree = "<group>"; };
 		BC2131CA721F073FC19EFB99 /* Pods-MuseBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseBoxTests.release.xcconfig"; path = "Target Support Files/Pods-MuseBoxTests/Pods-MuseBoxTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +194,7 @@
 				840E531324687C7000EA02CC /* Assets.xcassets */,
 				840E531524687C7000EA02CC /* LaunchScreen.storyboard */,
 				840E531824687C7000EA02CC /* Info.plist */,
+				84DCC311247168F700C2D301 /* Appicon120.png */,
 				84B0E9342468930500ACECD5 /* MuseBox-Bridging-Header.h */,
 				84B0E9382468B06400ACECD5 /* SignInViewController.swift */,
 				84B0E93A2468B73300ACECD5 /* SignUpViewController.swift */,
@@ -196,6 +207,8 @@
 				84564BAC2469545000EF6B63 /* EventInfoViewController.swift */,
 				84564BAE2469550100EF6B63 /* ProfileViewController.swift */,
 				84564BB324695A0700EF6B63 /* EditProfileViewController.swift */,
+				84DCC3152471A8C200C2D301 /* CommentTableViewCell.swift */,
+				84FFC6582476A84B0002D7B1 /* CommentsTableViewController.swift */,
 			);
 			path = MuseBox;
 			sourceTree = "<group>";
@@ -239,6 +252,8 @@
 				842324DD246DDA7600353D55 /* ModelSql.swift */,
 				84C9BEB1246F477E00BB20A1 /* Event.swift */,
 				84C9BEB3246F49B400BB20A1 /* EventLocalDB.swift */,
+				84DCC31B2471BB6000C2D301 /* Comment.swift */,
+				84DCC31D2471BDF500C2D301 /* CommentLocalDB.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,6 +385,7 @@
 				840E531F246888AF00EA02CC /* GoogleService-Info.plist in Resources */,
 				840E531424687C7000EA02CC /* Assets.xcassets in Resources */,
 				840E531224687C6E00EA02CC /* Main.storyboard in Resources */,
+				84DCC312247168F800C2D301 /* Appicon120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,11 +531,15 @@
 				84564BAF2469550100EF6B63 /* ProfileViewController.swift in Sources */,
 				84564BA12469533600EF6B63 /* FeedTableViewController.swift in Sources */,
 				84B0E93B2468B73300ACECD5 /* SignUpViewController.swift in Sources */,
+				84FFC6592476A84B0002D7B1 /* CommentsTableViewController.swift in Sources */,
 				84564BA7246953D300EF6B63 /* EventsTableViewController.swift in Sources */,
 				84564BAD2469545000EF6B63 /* EventInfoViewController.swift in Sources */,
 				84564BB8246968E800EF6B63 /* ModelFirebase.swift in Sources */,
+				84DCC3162471A8C300C2D301 /* CommentTableViewCell.swift in Sources */,
+				84DCC31E2471BDF500C2D301 /* CommentLocalDB.swift in Sources */,
 				842324D8246D6EE500353D55 /* Post.swift in Sources */,
 				84564BC12469B27300EF6B63 /* FirebaseStorage.swift in Sources */,
+				84DCC31C2471BB6000C2D301 /* Comment.swift in Sources */,
 				84B0E9392468B06400ACECD5 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

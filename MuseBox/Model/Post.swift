@@ -72,7 +72,7 @@ class Post {
         json["photoUrl"] = self.photoUrl
         json["lastUpdate"] = FieldValue.serverTimestamp()
         
-        return json;
+        return json
     }
     
 }

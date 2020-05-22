@@ -68,6 +68,6 @@ class Event {
         json["eventImgUrl"] = self.eventImgUrl
         json["lastUpdate"] = FieldValue.serverTimestamp()
         
-        return json;
+        return json
     }
 }

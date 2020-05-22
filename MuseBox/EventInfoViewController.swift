@@ -30,7 +30,7 @@ class EventInfoViewController: UIViewController {
         }
         
         if (event != nil){
-            let information = "\(String(describing: event!.date)) @ \(String(describing: event!.location)), \(String(describing: event!.time))"
+            let information = "\(String(event!.date!)) @ \(String(event!.location!)), \(String(event!.time!))"
             informationLabel.text = information
         }
         else {informationLabel.text = "no data"}

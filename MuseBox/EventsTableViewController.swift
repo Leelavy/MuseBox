@@ -15,14 +15,15 @@ class EventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         
-        //        ModelEvents.StudentDataEvent.observe {
-        //            self.refreshControl?.beginRefreshing()
-        //            self.reloadData();
-        //        }
+        ModelEvents.newEventEvent.observe {
+            self.refreshControl?.beginRefreshing()
+            self.reloadData()
+        }
+        
         self.refreshControl?.beginRefreshing()
         reloadData();
     }

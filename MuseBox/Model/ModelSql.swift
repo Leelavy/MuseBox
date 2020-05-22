@@ -14,7 +14,7 @@ class ModelSql{
     var localDatabase: OpaquePointer? = nil
     
     private init() {
-        let localDBFileName = "databaseMusebox4.db"
+        let localDBFileName = "databaseMusebox8.db"
         if let dir = FileManager.default.urls(for: .documentDirectory, in:
             .userDomainMask).first{
             let path = dir.appendingPathComponent(localDBFileName)
@@ -26,6 +26,7 @@ class ModelSql{
         createLastUpdateTable();
         Post.createLocalDBTable(database: localDatabase)
         Event.createLocalDBTable(database: localDatabase)
+        Comment.createLocalDBTable(database: localDatabase)
     }
     
     deinit {

@@ -15,7 +15,7 @@ extension Post{
         var errorMessage: UnsafeMutablePointer<Int8>? = nil
         let result = sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS POSTS (POST_ID TEXT PRIMARY KEY, USER_ID TEXT, USERNAME TEXT, USERIMG TEXT, TOPIC TEXT, INTEREST TEXT, CONTACT TEXT, CONTENT TEXT, PHOTO TEXT)", nil, nil, &errorMessage);
         if(result != 0){
-            print("error creating table");
+            print("error creating posts table");
             return
         }
     }
@@ -74,6 +74,25 @@ extension Post{
         }
         sqlite3_finalize(sqlite3_stmt)
         return allPosts
+    }
+    
+    static func deletePostFromLocalDB(postId: String, callback: @escaping (Bool)-> Void) {
+        
+        var sqlite3_stmt: OpaquePointer? = nil
+        let query = "DELETE from POSTS where POST_ID = '\(postId)'"
+        if (sqlite3_prepare_v2(ModelSql.instance.localDatabase,query,-1,&sqlite3_stmt,nil) == SQLITE_OK){
+            
+            if(sqlite3_step(sqlite3_stmt) == SQLITE_DONE){
+                print("Post deleted from local DB.")
+                sqlite3_finalize(sqlite3_stmt)
+                callback(true)
+            }
+            else {
+                print("Could not delete post from local DB.")
+                sqlite3_finalize(sqlite3_stmt)
+                callback(false)
+            }
+        }
     }
     
     static func setLastUpdate(lastUpdated:Int64){

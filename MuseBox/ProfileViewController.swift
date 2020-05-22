@@ -36,9 +36,14 @@ class ProfileViewController: UIViewController, SignInViewControllerDelegate,Edit
     }
     
     func onSignInCancel() {
-        self.dismiss(animated: true, completion: {
-            self.parent?.tabBarController?.selectedIndex = 0
-        })
+        if !Model.instance.isSignedIn() {
+            self.dismiss(animated: true, completion: {
+                self.parent?.tabBarController?.selectedIndex = 0
+            })
+        }
+        else {
+            updateProfilePage()
+        }
     }
     
     override func viewDidLoad() {
@@ -56,15 +61,16 @@ class ProfileViewController: UIViewController, SignInViewControllerDelegate,Edit
     
     
     func updateProfilePage(){
-        usernameLabel.text = Model.instance.theUser.username
-        emailLabel.text = Model.instance.theUser.email
-        infoTextView.text = Model.instance.theUser.info
         if Model.instance.theUser.profileImg != "" {
             profileImg.kf.setImage(with: URL(string: Model.instance.theUser.profileImg!))
         }
         else {
             profileImg.image = UIImage(named: "imgPlaceholder")
         }
+        usernameLabel.text = Model.instance.theUser.username
+        emailLabel.text = Model.instance.theUser.email
+        infoTextView.text = Model.instance.theUser.info
+        
         profileImg.setRounded()
     }
     
@@ -76,18 +82,7 @@ class ProfileViewController: UIViewController, SignInViewControllerDelegate,Edit
             show(signInScreen, sender: self)
         }
         else {
-            Model.instance.getUpdatedUserDetails(userId: user.userId!)
-            self.user = Model.instance.theUser
-            usernameLabel.text = Model.instance.theUser.username
-            emailLabel.text = Model.instance.theUser.email
-            infoTextView.text = Model.instance.theUser.info
-            if Model.instance.theUser.profileImg != "" {
-                profileImg.kf.setImage(with: URL(string: Model.instance.theUser.profileImg!))
-            }
-            else {
-                profileImg.image = UIImage(named: "imgPlaceholder")
-            }
-            profileImg.setRounded()
+            updateProfilePage()
         }
     }
     

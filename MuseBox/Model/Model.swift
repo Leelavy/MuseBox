@@ -209,6 +209,52 @@ class Model {
         }
     }
     
+    func deletePost(postId: String, callback: @escaping (Bool)->Void){
+        self.modelFirebase.deletePost(postId: postId) { (success) in
+            if success {
+                Post.deletePostFromLocalDB(postId: postId) { (success) in
+                    if success {
+                        callback(true)
+                    }
+                    else {
+                        callback(false)
+                    }
+                }
+            }
+            else {
+                callback(false)
+            }
+        }
+    }
+    
+    func deletePostImg(imgUrl: String, callback: @escaping (Bool)->Void){
+        FirbaseStorage.deletePostImage(imageUrl: imgUrl) { (success) in
+            if success {
+                print("Post photo deleted from storage!")
+                callback(true)
+            }
+            else {
+                print("Couldn't delete post photo")
+                callback(false)
+            }
+        }
+        
+    }
+    
+    func getPostImgUrlByPostId(postId: String, callback: @escaping (String?)->Void) {
+
+        modelFirebase.getPostImgUrlById(postId: postId) { (imgUrl) in
+            if let url = imgUrl {
+                print("Got img url to delete: \(url)")
+                callback(url)
+            }
+            else {
+                print("Couldn't get img url to delete")
+                callback(nil)
+            }
+        }
+    }
+    
     func updateUserDetails(userId: String, newUsername: String, newEmail: String, newProfileImg: String, newInfo: String, callback:@escaping (Bool)-> Void){
         modelFirebase.updateUserDetails(userId: userId, newUsername: newUsername, newEmail: newEmail, newProfileImg: newProfileImg, newInfo: newInfo) { (success) in
             if success {
@@ -266,7 +312,107 @@ class Model {
         }
     }
     
+    func saveComment(newComment: Comment, callback: @escaping (Bool)->Void){
+        self.modelFirebase.addCommentToDB(comment: newComment) { (success) in
+            if success {
+                callback(true)
+            }
+            else {
+                callback(false)
+            }
+        }
+    }
+    
+    func getAllCommentsPerPost(postId: String, callback:@escaping ([Comment]?)->Void){
+        
+        //get the local last update date
+        let lud = Comment.getLastUpdateDate()
+        
+        //get the cloud updates
+        modelFirebase.getAllCommentsPerPost(since: lud, postId: postId) { (data) in
+            //insert update to the local db
+            var lud:Int64 = 0
+            for comment in data!{
+                print("Comment about to enter local DB")
+                comment.addToLocalDB()
+                if comment.lastUpdate! > lud {lud = comment.lastUpdate!}
+            }
+            //updates the post's local last update date
+            Comment.setLastUpdate(lastUpdated: lud)
+            // get the complete student list
+            let finalCommentsData = Comment.getAllCommentsPerPost(postId: postId)
+            callback(finalCommentsData)
+        }
+    }
+    
+    func deleteComment(commentId: String, callback: @escaping (Bool)->Void){
+        self.modelFirebase.deleteComment(commentId: commentId) { (success) in
+            if success {
+                Comment.deleteCommentFromLocalDB(commentId: commentId) { (success) in
+                    if success {
+                        callback(true)
+                    }
+                    else {
+                        callback(false)
+                    }
+                }
+            }
+            else {
+                callback(false)
+            }
+        }
+    }
     
     
+    
+}
 
+class ModelEvents{
+    static let newPostEvent = EventNotificationBase(eventName: "com.MuseBox.newPostEvent")
+    static let deletePostEvent = EventNotificationBase(eventName: "com.MuseBox.deletePostEvent")
+    static let newEventEvent = EventNotificationBase(eventName: "com.MuseBox.newEventEvent")
+    static let newCommentEvent = StringEventNotificationBase<String>(eventName: "com.MuseBox.newCommentEvent")
+    static let deleteCommentEvent = StringEventNotificationBase<String>(eventName: "com.MuseBox.deleteCommentEvent")
+    static let profileUpdateEvent = EventNotificationBase(eventName: "com.MuseBox.profileUpdateEvent")
+    static let SignInStatusEvent = EventNotificationBase(eventName: "com.MuseBox.signInStatusEvent")
+
+    
+    private init(){}
+}
+
+class EventNotificationBase{
+    let eventName:String
+    
+    init(eventName:String){
+        self.eventName = eventName
+    }
+    
+    func observe(callback:@escaping ()->Void){
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(eventName),object: nil, queue: nil) { (data) in
+            callback()
+        }
+    }
+    
+    func post(){
+        NotificationCenter.default.post(name: NSNotification.Name(eventName),object: self,userInfo: nil)
+    }
+}
+
+class StringEventNotificationBase<T>{
+    let eventName:String
+    
+    init(eventName:String){
+        self.eventName = eventName
+    }
+    
+    func observe(callback:@escaping (T)->Void){
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(eventName),object: nil, queue: nil) { (data) in
+            let strData = data.userInfo!["data"] as! T
+            callback(strData)
+        }
+    }
+    
+    func post(data:T){
+        NotificationCenter.default.post(name: NSNotification.Name(eventName),object: self,userInfo: ["data":data])
+    }
 }

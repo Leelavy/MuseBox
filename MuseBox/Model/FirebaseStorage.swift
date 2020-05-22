@@ -60,6 +60,20 @@ class FirbaseStorage {
             }
         }
     }
-       
     
+    static func deletePostImage(imageUrl: String, callback:@escaping (Bool)->Void){
+        
+        let photoRef = Storage.storage().reference(forURL: imageUrl)
+        photoRef.delete { (error) in
+            if let err = error {
+                print("Error deleting photo from storage: \(err)")
+                callback(false)
+            }
+            else{
+                print("Post photo deleted from storage")
+                callback(true)
+            }
+        }
+    }
+       
 }

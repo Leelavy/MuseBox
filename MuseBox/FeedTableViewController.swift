@@ -9,9 +9,44 @@
 import UIKit
 import Kingfisher
 
-class FeedTableViewController: UITableViewController, SignInViewControllerDelegate{
+class FeedTableViewController: UITableViewController, SignInViewControllerDelegate, FeedTableViewCellDelegate{
+    
+    var allCommentsIdToDelete = [String]()
+    
+    func feedTableViewCell(_ feedTableViewCell: FeedTableViewCell, deleteButtonTappedFor postId: String) {
+        
+        showIndicator(title: "deleting...", description: "")
+        var title: String = "Post deleted"
+        var message: String = ""
+        Model.instance.deletePost(postId: postId) { (success) in
+            if success {
+                self.refreshControl?.beginRefreshing()
+                self.allCommentsIdToDelete = Comment.getAllCommentsPerPostId(postId: postId)
+                for commentId in self.allCommentsIdToDelete {
+                    Model.instance.deleteComment(commentId: commentId) { (success) in
+                        if success {
+                            self.reloadData()
+                        }
+                    }
+                }
+                self.reloadData()
+            }
+            else {
+                title = "Couldn't delete post.."
+                message = "please try again"
+                print("Error deleting post")
+            }
+            self.hideIndicator()
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
     var allPosts = [Post]()
+    var selectedPost: Post?
     
     @IBOutlet weak var signInBtn: UIBarButtonItem!
     
@@ -33,6 +68,10 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
             let signInScreen:SignInViewController = segue.destination as! SignInViewController
             signInScreen.delegate = self
         }
+        if segue.identifier == "ToCommentsSegue" {
+            let commentsScreen: CommentsTableViewController = segue.destination as! CommentsTableViewController
+            commentsScreen.post = selectedPost
+        }
     }
     
     @objc func signOut(sender: UIBarButtonItem){
@@ -49,15 +88,17 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
 
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 500
+        
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         
-//        ModelEvents.StudentDataEvent.observe {
-//            self.refreshControl?.beginRefreshing()
-//            self.reloadData();
-//        }
+        ModelEvents.newPostEvent.observe {
+            self.refreshControl?.beginRefreshing()
+            self.reloadData()
+        }
+        
         self.refreshControl?.beginRefreshing()
-        reloadData();
+        reloadData()
     }
     
     @objc func reloadData(){
@@ -72,6 +113,8 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
     
     override func viewWillAppear(_ animated: Bool) {
         signButtonAppear()
+        self.tabBarController?.tabBar.isHidden = false
+        self.reloadData()
     }
     
     func signButtonAppear(){
@@ -104,6 +147,14 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
         
         let post = allPosts[indexPath.row]
         
+        cell.postId = post.postId
+        cell.delegate = self
+        
+        cell.deleteBtn.isHidden = true
+        if post.userId == Model.instance.theUser.userId {
+            cell.deleteBtn.isHidden = false
+        }
+        
         cell.topicLabel.text = "Topic: " + post.topic!
         cell.interestLabel.text = "Interests: " + post.interest!
         cell.contentTextView.text = post.content
@@ -129,6 +180,12 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(500)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPost = allPosts[indexPath.row]
+        performSegue(withIdentifier: "ToCommentsSegue", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 

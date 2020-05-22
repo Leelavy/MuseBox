@@ -80,28 +80,38 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         if usernameTextField.text == "" {
             newUsername = usernameTextField.placeholder!
         }
-        else { newUsername = usernameTextField.text! }
+        else {
+            newUsername = usernameTextField.text!
+            Model.instance.theUser.username = newUsername
+
+        }
         if emailTextField.text == "" {
             newEmail = emailTextField.placeholder!
         }
-        else { newEmail = emailTextField.text! }
+        else {
+            newEmail = emailTextField.text!
+            Model.instance.theUser.email = newEmail
+        }
         if infoTextView.text != user.info {
             newInfo = infoTextView.text
+            Model.instance.theUser.info = newInfo
         }
         if selectedImg != nil {
             //delete current img in storage
             Model.instance.saveImageGeneral(image: selectedImg!, category: "profile_image", id: user.userId) { (imgUrl) in
                 if imgUrl != nil {
+                    Model.instance.theUser.profileImg = imgUrl
                     Model.instance.updateUserProfilePicture(userId: self.user.userId!, url: imgUrl!) { (success) in
                         if success {
                             Model.instance.updateUserDetails(userId: self.user.userId!, newUsername: newUsername!, newEmail: newEmail!, newProfileImg: imgUrl!, newInfo: newInfo!) { (success) in
                                 if success {
-                                    self.hideIndicator()
-                                    self.selectedImg = nil //reset the selected img selector
-                                    self.navigationController?.popViewController(animated: true)
                                     if let delegate = self.delegate{
                                         delegate.onEditSuccess()
                                     }
+                                    self.selectedImg = nil //reset the selected img selector
+                                    self.hideIndicator()
+                                    self.navigationController?.popViewController(animated: true)
+
                                 }
                                 else {
                                     self.hideIndicator()
