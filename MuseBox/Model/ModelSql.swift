@@ -14,7 +14,7 @@ class ModelSql{
     var localDatabase: OpaquePointer? = nil
     
     private init() {
-        let localDBFileName = "databaseMusebox8.db"
+        let localDBFileName = "dbMusebox.db"
         if let dir = FileManager.default.urls(for: .documentDirectory, in:
             .userDomainMask).first{
             let path = dir.appendingPathComponent(localDBFileName)
