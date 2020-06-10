@@ -92,19 +92,20 @@ class ModelFirebase {
     }
     
     func deletePost(postId: String, callback:@escaping (Bool)->Void){
-          
-          let dataBase = Firestore.firestore()
-          dataBase.collection("posts").document(postId).delete(){ error in
-              if error != nil {
-                  print("Error deleting post: \(error!.localizedDescription)")
-                  callback(false)
-              }
-              else {
-                  print("Post '\(postId )' deleted.")
-                  callback(true)
-              }
-          }
-      }
+        
+        let dataBase = Firestore.firestore()
+        dataBase.collection("posts").document(postId).delete(){ error in
+            if error != nil {
+                print("Error deleting post: \(error!.localizedDescription)")
+                callback(false)
+            }
+            else {
+                print("Post '\(postId )' deleted.")
+                ModelEvents.deletePostEvent.post()
+                callback(true)
+            }
+        }
+    }
     
     func getPostImgUrlById(postId: String, callback: @escaping (String?)->Void){
         let dataBase = Firestore.firestore()
@@ -168,7 +169,7 @@ class ModelFirebase {
             }
             else {
                 print("comment was added to the DB.")
-                //i should add comment's model event notification (post event)
+                ModelEvents.newCommentEvent.post()
                 callback(true)
             }
         }

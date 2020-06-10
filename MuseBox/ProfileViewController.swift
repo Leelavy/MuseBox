@@ -49,6 +49,10 @@ class ProfileViewController: UIViewController, SignInViewControllerDelegate,Edit
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ModelEvents.newPostEvent.observe {
+            self.updateProfilePage()
+        }
+        
         if(!Model.instance.isSignedIn()){
             let signInScreen = SignInViewController.factory()
             signInScreen.delegate = self

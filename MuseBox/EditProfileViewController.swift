@@ -83,7 +83,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         else {
             newUsername = usernameTextField.text!
             Model.instance.theUser.username = newUsername
-
         }
         if emailTextField.text == "" {
             newEmail = emailTextField.placeholder!
@@ -97,7 +96,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             Model.instance.theUser.info = newInfo
         }
         if selectedImg != nil {
-            //delete current img in storage
             Model.instance.saveImageGeneral(image: selectedImg!, category: "profile_image", id: user.userId) { (imgUrl) in
                 if imgUrl != nil {
                     Model.instance.theUser.profileImg = imgUrl
@@ -143,15 +141,5 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -97,6 +97,11 @@ class FeedTableViewController: UITableViewController, SignInViewControllerDelega
             self.reloadData()
         }
         
+        ModelEvents.deletePostEvent.observe {
+            self.refreshControl?.beginRefreshing()
+            self.reloadData()
+        }
+        
         self.refreshControl?.beginRefreshing()
         reloadData()
     }

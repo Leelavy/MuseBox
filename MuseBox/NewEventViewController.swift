@@ -33,7 +33,7 @@ class NewEventViewController: UIViewController, UIImagePickerControllerDelegate,
         eventImg.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         eventImg.addGestureRecognizer(tap)
-        handleShareButton() // makes the share button enabled if text fields are filled
+        handleShareButton()
         
         if(!Model.instance.isSignedIn()){
             let signInScreen = SignInViewController.factory()
@@ -91,15 +91,5 @@ class NewEventViewController: UIViewController, UIImagePickerControllerDelegate,
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

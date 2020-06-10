@@ -12,24 +12,6 @@ import Firebase
 
 class FirbaseStorage {
     
-//    static func saveImage(image:UIImage, callback:@escaping (String)->Void){
-//        let refStorage = Storage.storage().reference(forURL:
-//            "gs://musebox-app.appspot.com")
-//        let data = image.jpegData(compressionQuality: 0.5)
-//        let refImg = refStorage.child("imageName")
-//        let metadata = StorageMetadata()
-//        metadata.contentType = "image/jpeg"
-//        refImg.putData(data!, metadata: metadata) { (metadata, error) in
-//            refImg.downloadURL { (url, error) in
-//                guard let downloadURL = url else {
-//                    return
-//                }
-//                print("url: \(downloadURL)")
-//                callback(downloadURL.absoluteString)
-//            }
-//        }
-//    }
-    
     static func saveImageGeneral(image:UIImage, category:String?, id: String?, callback:@escaping (String?)->Void){
         
         let refStorage = Storage.storage().reference(forURL:"gs://musebox-app.appspot.com")

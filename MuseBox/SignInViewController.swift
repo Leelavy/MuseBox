@@ -42,7 +42,6 @@ class SignInViewController: UIViewController {
     
     @objc func back(sender: UIBarButtonItem) {
         
-        //performSegue(withIdentifier: "cancelLoginSegue", sender: self)
         self.navigationController?.popViewController(animated: true);
 
         if let delegate = delegate{
@@ -70,26 +69,15 @@ class SignInViewController: UIViewController {
     func handleSignInButton(){
            emailTextField.addTarget(self, action: #selector(SignUpViewController.textFieldsUpdated), for: UIControl.Event.editingChanged)
            passwordTextField.addTarget(self, action: #selector(SignUpViewController.textFieldsUpdated), for: UIControl.Event.editingChanged)
-       }
-       
-       @objc func textFieldsUpdated(){
-           if emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-               signInBtn.isEnabled = false
-               return
-           }
-           signInBtn.setTitleColor(UIColor.white, for: UIControl.State.normal)
-           signInBtn.isEnabled = true
-           
-       }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+       
+    @objc func textFieldsUpdated(){
+        if emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
+            signInBtn.isEnabled = false
+            return
+        }
+        signInBtn.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        signInBtn.isEnabled = true
+    }
 
 }

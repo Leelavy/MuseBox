@@ -32,6 +32,11 @@ class CommentsTableViewController: UITableViewController, SignInViewControllerDe
             show(signInScreen, sender: self)
         }
         
+        ModelEvents.newCommentEvent.observe {
+            self.refreshControl?.beginRefreshing()
+            self.reloadData()
+        }
+        
         handleSendButton()
         
         self.tableView.rowHeight = UITableView.automaticDimension
